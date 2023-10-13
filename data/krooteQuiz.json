@@ -1,0 +1,785 @@
+{
+    "quizs":[
+        {
+        "Theme": "Géographie",
+        "Nom": "Villes de France",
+        "difficulte": "facile",
+        "questions": [
+            {
+                "question": "Dans quel département se situe Bordeaux ?",
+                "reponses": [
+                    "Gironde",
+                    "Gers",
+                    "Landes",
+                    "Vendée"
+                ],
+                "reponse_juste": 0
+            },
+            
+            {
+                "question": "Chambéry est une ville italienne.",
+                "reponses": [
+                    "Vrai",
+                    "Faux"
+                ],
+                "reponse_juste": 1
+            },
+
+            {
+                "question": "Le code postal du Finistère est le :",
+                "reponses": [
+                    "73",
+                    "06",
+                    "29",
+                    "63"
+                ],
+                "reponse_juste": 2
+            },
+
+            {
+                "question": "Quelle ville, parmi ces quatre, est la plus grande d'Alsace ?",
+                "reponses": [
+                    "Mulhouse",
+                    "Colmar",
+                    "Molsheim",
+                    "Strasbourg"
+                ],
+                "reponse_juste": 3
+            },
+
+            {
+                "question": "Charleville est indiscociable de ...",
+                "reponses": [
+                    "Sedan",
+                    "Mézières",
+                    "Maubeuge",
+                    "Reims"
+                ],
+                "reponse_juste": 1
+            }
+        ]
+        },
+        {
+            "Theme": "Histoire",
+            "Nom": "Histoire de France",
+            "difficulte": "facile",
+            "questions": [
+            {
+                "question": "Hugues Capet est le fondateur de la dynastie...",
+                "reponses": [
+                    "capétoise",
+                    "mérovingienne",
+                    "capétienne",
+                    "française"
+                ],
+                "reponse_juste": 2
+            },
+            
+            {
+                "question": "En quelle année est mort Napoléon Ier ?",
+                "reponses": [
+                    "Hier",
+                    "1821",
+                    "1815",
+                    "1769"
+                ],
+                "reponse_juste": 1
+            },
+
+            {
+                "question": "Louis XIV vécu majoritairement au ...",
+                "reponses": [
+                    "Château de Chambord",
+                    "Château de Versailles"
+                ],
+                "reponse_juste": 1
+            },
+
+            {
+                "question": "Il y eut un deuxième Napoléon à la tête de la France",
+                "reponses": [
+                    "Vrai",
+                    "Faux"
+                ],
+                "reponse_juste": 0
+            },
+
+            {
+                "question": "Qui a appelé les français à résister le 18 juin 1940 ?",
+                "reponses": [
+                    "Le Premier Ministre Winston Churchill",
+                    "Le Fürher Adolf Hitler",
+                    "Le maréchal Philippe Pétain",
+                    "Le général Charles de Gaulle"
+                ],
+                "reponse_juste": 3
+            }
+        ]
+        },
+        {
+            "Theme": "Géographie",
+            "Nom": "Villes de France 2",
+            "difficulte": "normal",
+            "questions": [
+                {
+                    "question": "Dans quel département se situe Vesoul ?",
+                    "reponses": [
+                        "Haute-Marne",
+                        "Haute-Saône",
+                        "Haute-Loire",
+                        "Haute-Garonne"
+                    ],
+                    "reponse_juste": 1
+                },
+                
+                {
+                    "question": "Carcassone est célèbre grâce à ...",
+                    "reponses": [
+                        "sa mairie",
+                        "sa gastronomie",
+                        "sa gare",
+                        "ses remparts"
+                    ],
+                    "reponse_juste": 3
+                },
+    
+                {
+                    "question": "Le code postal de la Guyane est le :",
+                    "reponses": [
+                        "971",
+                        "972",
+                        "973",
+                        "974"
+                    ],
+                    "reponse_juste": 2
+                },
+    
+                {
+                    "question": "A Paris, on peut trouver :",
+                    "reponses": [
+                        "La tour Eiffel, l'Arc de Triomphe et le Stade de France",
+                        "L'Arc de Triomphe, le palais de l'Elysée et la gare Part-Dieu",
+                        "Le palais du Luxembourg, la tour Eiffel et la pyramide du Louvre",
+                        "La tour Eiffel, l'Arc de Triomphe et le Vélodrome"
+                    ],
+                    "reponse_juste": 2
+                },
+    
+                {
+                    "question": "Lyon est la deuxième plus grande ville de France.",
+                    "reponses": [
+                        "Vrai",
+                        "Faux"
+                    ],
+                    "reponse_juste": 1
+                }
+            ]
+            },
+            {
+                "Theme": "Autres",
+                "Nom": "Assassin's Creed",
+                "difficulte": "normal",
+                "questions": [
+                    {
+                        "question": "Dans quel opus apparaît pour la première fois Ezio Auditore da Firenze ?",
+                        "reponses": [
+                            "Assassin's Creed IV: Black Flag",
+                            "Assassin's Creed: Brotherhood",
+                            "Assassin's Creed II",
+                            "Assassin's Creed"
+                        ],
+                        "reponse_juste": 2
+                    },
+                    
+                    {
+                        "question": "Les évènements d'Assassin's Creed Unity se déroulent durant ...",
+                        "reponses": [
+                            "La Révolution française",
+                            "La Révolution industrielle",
+                            "La Révolution américaine",
+                            "La Renaissance"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Quels noms portent les jumeaux Frye d'Assassin's Creed Syndicate ?",
+                        "reponses": [
+                            "Benjamin et Lucy",
+                            "Charles et Clara",
+                            "Alexander et Florence",
+                            "Jacob et Evie"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Qui est Edward Kenway pour Connor Kenway ?",
+                        "reponses": [
+                            "Son oncle",
+                            "Son fils",
+                            "Son père",
+                            "Son grand-père"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Quel est l'antagoniste principal d'Assassin's Creed Brotherhood ?",
+                        "reponses": [
+                            "Rodrigo Borgia",
+                            "Cesare Borgia",
+                            "Lucrèce Borgia",
+                            "Nicolas Machiavel"
+                        ],
+                        "reponse_juste": 1
+                    },
+
+                    {
+                        "question": "Dans le premier Assassin's Creed, le dirigeant de l'Ordre des Templiers est ...",
+                        "reponses": [
+                            "Jacques de Molay",
+                            "Cesare Borgia",
+                            "Robert de Sablé",
+                            "Haytham Kenway"
+                        ],
+                        "reponse_juste": 2
+                    },
+
+                    {
+                        "question": "Quel célèbre Lothbrok, Eivor ne croise-t-il pas dans Assassin's Creed Valhalla ?",
+                        "reponses": [
+                            "Ragnar",
+                            "Ubbe",
+                            "Ivar",
+                            "Halfdan"
+                        ],
+                        "reponse_juste": 0
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "Harry Potter et le Prisonnier d'Azkaban",
+                "difficulte": "facile",
+                "questions": [
+                    {
+                        "question": "Qui est le réalisateur du film ?",
+                        "reponses": [
+                            "David Yates",
+                            "Alfonso Cuaron",
+                            "Mike Newell",
+                            "Chris Colombus"
+                        ],
+                        "reponse_juste": 1
+                    },
+                    
+                    {
+                        "question": "Qui est le nouveau professeur de défense contre les forces du mal ?",
+                        "reponses": [
+                            "Severus Rogue",
+                            "Dolores Ombrage",
+                            "Gilderoy Lockhart",
+                            "Remus Lupin"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Buck est un ...",
+                        "reponses": [
+                            "animagus",
+                            "loup-garou",
+                            "hippogriffe",
+                            "serpent"
+                        ],
+                        "reponse_juste": 2
+                    },
+        
+                    {
+                        "question": "Vers la fin du film, qui sauve Harry et Sirius des détraqueurs ?",
+                        "reponses": [
+                            "le père de Harry, James Potter",
+                            "Harry Potter",
+                            "Hermione Granger",
+                            "Albus Perceval Wulfric Brian Dumbledore"
+                        ],
+                        "reponse_juste": 1
+                    },
+
+                    {
+                        "question": "D'ailleurs, qu'est-ce qu'un détraqueur ?",
+                        "reponses": [
+                            "un fantôme de Poudlard",
+                            "Un goblin de la banque de Gringotts",
+                            "Un prisonnier d'Azkaban",
+                            "Une créature gardienne d'Azkaban"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Enfin, qui est réellement Croûtard ?",
+                        "reponses": [
+                            "Peter Pettigrow",
+                            "Lord Voldemort",
+                            "Sirius Black",
+                            "Hagrid"
+                        ],
+                        "reponse_juste": 0
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "The Batman (film, 2022)",
+                "difficulte": "normal",
+                "questions": [
+                    {
+                        "question": "Qui incarne le Chevalier noir ?",
+                        "reponses": [
+                            "Christian Bale",
+                            "Ben Affleck",
+                            "Robert Pattinson",
+                            "Adam West"
+                        ],
+                        "reponse_juste": 2
+                    },
+                    
+                    {
+                        "question": "Qui est l'antagoniste principal ?",
+                        "reponses": [
+                            "le Pingouin",
+                            "Carmine Falcone",
+                            "le Joker",
+                            "l'Homme-mystère"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Qui aide le Batman dans son enquête ?",
+                        "reponses": [
+                            "Catwoman",
+                            "Robin",
+                            "Nightwing",
+                            "Batwoman"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Qui est la première victime de l'Homme-mystère ?",
+                        "reponses": [
+                            "Le procureur Gil Colson",
+                            "Le maire de Gotham, Don Mitchell Jr",
+                            "Le commissaire Pete Savage",
+                            "Carmine Falcone"
+                        ],
+                        "reponse_juste": 1
+                    },
+        
+                    {
+                        "question": "Quel est la profession de l'Homme-mystère Edward Nashton",
+                        "reponses": [
+                            "Policier",
+                            "Avocat pénaliste",
+                            "Comptable judiciaire",
+                            "Gardien de prison"
+                        ],
+                        "reponse_juste": 2
+                    },
+
+                    {
+                        "question": "Quel est le point commun entre l'Homme-mystère et Batman ?",
+                        "reponses": [
+                            "Ils n'ont aucun point commun",
+                            "Ils sont cousins",
+                            "Ils sont demi-frères",
+                            "Ils sont tous les deux orphelins"
+                        ],
+                        "reponse_juste": 3
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "Basketball : NBA",
+                "difficulte": "difficile",
+                "questions": [
+                    {
+                        "question": "Qui voit-on dans le logo de la NBA ?",
+                        "reponses": [
+                            "Kobe Bryant",
+                            "Michael Jordan",
+                            "Elgin Baylor",
+                            "Jerry West"
+                        ],
+                        "reponse_juste": 3
+                    },
+                    
+                    {
+                        "question": "Quelles sont les deux équipes les plus titrés (à égalité) ?",
+                        "reponses": [
+                            "Chicago Bulls / Miami Heat",
+                            "Los Angeles Lakers / Boston Celtics",
+                            "Orlando Magic / Indiana Pacers",
+                            "Portland Trail Blazers / Milwaukee Bucks"
+                        ],
+                        "reponse_juste": 1
+                    },
+        
+                    {
+                        "question": "Qui est le seul à avoir marqué 100 points lors d'un match NBA ?",
+                        "reponses": [
+                            "LeBron James",
+                            "Wilt Chamberlain",
+                            "Kareem Abdul-Jabbar",
+                            "Stephen Curry"
+                        ],
+                        "reponse_juste": 1
+                    },
+        
+                    {
+                        "question": "Quel est le français ayant le plus de titres NBA et le seul MVP des finales ?",
+                        "reponses": [
+                            "Tony Parker",
+                            "Boris Diaw",
+                            "Rudy Gobert",
+                            "Joachim Noah"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Quelle équipe est championne en titre ?",
+                        "reponses": [
+                            "Phoenix Suns",
+                            "Brooklyn Nets",
+                            "Golden State Warriors",
+                            "Milwaukee Bucks"
+                        ],
+                        "reponse_juste": 2
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "The Elder Scrolls V: Skyrim",
+                "difficulte": "facile",
+                "questions": [
+                    {
+                        "question": "En quelle année est sorti le jeu ?",
+                        "reponses": [
+                            "2010",
+                            "2011",
+                            "2012",
+                            "2013"
+                        ],
+                        "reponse_juste": 1
+                    },
+                    
+                    {
+                        "question": "Dans quel territoire de Tamriel, l'action se déroule-t-elle ?",
+                        "reponses": [
+                            "Bordeciel",
+                            "Daguefilante",
+                            "Morrowind",
+                            "Elsweyr"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Quelle menace principale pèse sur Bordeciel ?",
+                        "reponses": [
+                            "la Guilde des voleurs",
+                            "la Confrérie Noire",
+                            "la guerre civile",
+                            "le retour des dragons"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Parmi ces tritres, lequel est inaccessible pour le héros principal ?",
+                        "reponses": [
+                            "Chef de la Guilde des voleurs",
+                            "Archimage de l'Académie de Fortdhiver",
+                            "Haut-roi de Bordeciel",
+                            "Hérault des Compagnons"
+                        ],
+                        "reponse_juste": 2
+                    },
+        
+                    {
+                        "question": "Quel est la particularité du Dovahkiin (Enfant de Dragon) ?",
+                        "reponses": [
+                            "Il peut utiliser sa voix comme arme",
+                            "Il peut voler durant des kilomètres",
+                            "Il a une force herculéenne",
+                            "Il a la capacité de devenir invisible"
+                        ],
+                        "reponse_juste": 0
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "Football : Ligue 1",
+                "difficulte": "facile",
+                "questions": [
+                    {
+                        "question": "Quel est le nom complet du championnat de France ?",
+                        "reponses": [
+                            "Ligue 1 Orange",
+                            "Ligue 1 BKT",
+                            "Ligue 1 Uber Eats",
+                            "Ligue 1 Conforama"
+                        ],
+                        "reponse_juste": 2
+                    },
+                    
+                    {
+                        "question": "Quelles sont les deux équipes les plus titrées (2021) ?",
+                        "reponses": [
+                            "PSG / OM",
+                            "PSG / OL",
+                            "PSG / AS Monaco",
+                            "PSG / AS Saint-Etienne"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Quel est le club le plus aimé des Français en 2021 ?",
+                        "reponses": [
+                            "PSG",
+                            "OL",
+                            "AS Monaco",
+                            "LOSC"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Quel est le club le plus détesté des Français en 2021 ?",
+                        "reponses": [
+                            "OM",
+                            "PSG",
+                            "OL",
+                            "AS Saint-Etienne"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Lequel de ces deux joueurs est le plus titré ?",
+                        "reponses": [
+                            "Jean-Michel Larqué",
+                            "Marco Verrati"
+                        ],
+                        "reponse_juste": 1
+                    },
+
+                    {
+                        "question": "Quel est le club avec le plus de participations en Ligue 1 (2022) ?",
+                        "reponses": [
+                            "Girondins de Bordeaux",
+                            "AS Saint-Etienne",
+                            "OM",
+                            "FC Sochaux-Montbéliard"
+                        ],
+                        "reponse_juste": 2
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "Red Dead Redemption",
+                "difficulte": "normal",
+                "questions": [
+                    {
+                        "question": "Quel est le nom du héros principal ?",
+                        "reponses": [
+                            "Bill Williamson",
+                            "Dutch Van Der Linde",
+                            "Arthur Morgan",
+                            "John Marston"
+                        ],
+                        "reponse_juste": 3
+                    },
+                    
+                    {
+                        "question": "En quelle année est sorti le jeu ?",
+                        "reponses": [
+                            "2010",
+                            "2011",
+                            "2012",
+                            "2018"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Le jeu se déroule principalement en ...",
+                        "reponses": [
+                            "1899",
+                            "1911",
+                            "1919",
+                            "1903"
+                        ],
+                        "reponse_juste": 1
+                    },
+        
+                    {
+                        "question": "Parmi les personnes qui aident John, Nigel West Dickens est un ...",
+                        "reponses": [
+                            "pilleur de tombes psychopathe",
+                            "trouillard alcoolique aux mauvaises fréquentations",
+                            "charlatan créatif",
+                            "un ancien as de la gâchette"
+                        ],
+                        "reponse_juste": 2
+                    },
+        
+                    {
+                        "question": "Le tyran mexicain qui règne sur Chuparosa s'appelle ...",
+                        "reponses": [
+                            "Javier Escuella",
+                            "Landon Ricketts",
+                            "Abraham Reyes",
+                            "Agustin Allende"
+                        ],
+                        "reponse_juste": 3
+                    },
+
+                    {
+                        "question": "Que dirige Dutch Van Der Linde ?",
+                        "reponses": [
+                            "une bande de bandits indiens",
+                            "une bande d'anciens militaires"
+                        ],
+                        "reponse_juste": 0
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "Spider-Man (film, 2002)",
+                "difficulte": "normal",
+                "questions": [
+                    {
+                        "question": "Qui incarne Spider-Man ?",
+                        "reponses": [
+                            "Tom Holland",
+                            "Andrew Garfield",
+                            "Tobey Maguire",
+                            "Peter Parker"
+                        ],
+                        "reponse_juste": 2
+                    },
+                    
+                    {
+                        "question": "Combien gagne Spider-Man à l'issue du match de catch face à Bonesaw ?",
+                        "reponses": [
+                            "3000 $",
+                            "100 $",
+                            "300 $",
+                            "2000 $"
+                        ],
+                        "reponse_juste": 1
+                    },
+        
+                    {
+                        "question": "Qui se cache sous le masque du Bouffon Vert ?",
+                        "reponses": [
+                            "Ben Parker",
+                            "May Parker",
+                            "Harry Osborn",
+                            "Norman Osborn"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "De qui Peter et Harry sont-ils amoureux ?",
+                        "reponses": [
+                            "Mary-Jane Watson",
+                            "Gwen Stacy"
+                        ],
+                        "reponse_juste": 0
+                    },
+        
+                    {
+                        "question": "Spider-Man tue volontairement le Bouffon Vert.",
+                        "reponses": [
+                            "Vrai",
+                            "Faux"
+                        ],
+                        "reponse_juste": 1
+                    }
+                ]
+                },
+            {
+                "Theme": "Autres",
+                "Nom": "Xbox",
+                "difficulte": "facile",
+                "questions": [
+                    {
+                        "question": "En quelle année est sortie la première Xbox ?",
+                        "reponses": [
+                            "2000",
+                            "2001",
+                            "2002",
+                            "2003"
+                        ],
+                        "reponse_juste": 1
+                    },
+                    
+                    {
+                        "question": "Quelles sont les noms des dernières Xbox ?",
+                        "reponses": [
+                            "Xbox One|360",
+                            "Xbox Series A|B",
+                            "Xbox Series F|G",
+                            "Xbox Series X|S"
+                        ],
+                        "reponse_juste": 3
+                    },
+        
+                    {
+                        "question": "Quelle est la couleur phare de la Xbox ?",
+                        "reponses": [
+                            "Jaune",
+                            "Rouge",
+                            "Vert",
+                            "Bleu"
+                        ],
+                        "reponse_juste": 2
+                    },
+        
+                    {
+                        "question": "Sony est derrière la marque Xbox.",
+                        "reponses": [
+                            "Vrai",
+                            "Faux"
+                        ],
+                        "reponse_juste": 1
+                    },
+        
+                    {
+                        "question": "Quelle est la Xbox la plus populaire ?",
+                        "reponses": [
+                            "Xbox",
+                            "Xbox 360",
+                            "Xbox One",
+                            "Xbox Series X|S"
+                        ],
+                        "reponse_juste": 1
+                    }
+                ]
+                }
+    ]
+}
+
