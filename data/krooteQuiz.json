@@ -779,6 +779,73 @@
                         "reponse_juste": 1
                     }
                 ]
+                },
+                {
+                    "Theme": "Autres",
+                    "Nom": "Star Wars : Épisode IV - Un Nouvel Espoir",
+                    "difficulte": "normal",
+                    "questions": [
+                        {
+                            "question": "Quel est le nom complet de Dark Vador ?",
+                            "reponses": [
+                                "Darth Vader",
+                                "Anakin Skywalker",
+                                "Luke Skywalker",
+                                "Obi-Wan Kenobi"
+                            ],
+                            "reponse_juste": 1
+                        },
+                        {
+                            "question": "Comment s'appelle la princesse que Luke Skywalker doit sauver ?",
+                            "reponses": [
+                                "Leia Organa",
+                                "Padmé Amidala",
+                                "Ahsoka Tano",
+                                "Jyn Erso"
+                            ],
+                            "reponse_juste": 0
+                        },
+                        {
+                            "question": "Qui est le maître Jedi de Luke Skywalker ?",
+                            "reponses": [
+                                "Obi-Wan Kenobi",
+                                "Yoda",
+                                "Mace Windu",
+                                "Qui-Gon Jinn"
+                            ],
+                            "reponse_juste": 0
+                        },
+                        {
+                            "question": "Quel est le nom du vaisseau spatial de Han Solo ?",
+                            "reponses": [
+                                "Le Faucon Millenium",
+                                "L'Étoile de la Mort",
+                                "Le X-Wing",
+                                "Le Tie Fighter"
+                            ],
+                            "reponse_juste": 0
+                        },
+                        {
+                            "question": "Lequel de ces personnages est un Wookiee ?",
+                            "reponses": [
+                                "C-3PO",
+                                "Boba Fett",
+                                "R2-D2",
+                                "Chewbacca"
+                            ],
+                            "reponse_juste": 3
+                        },
+                        {
+                            "question": "Quelle arme est la plus puissante de l'Univers ?",
+                            "reponses": [
+                                "Un sabre laser",
+                                "La Force",
+                                "Une arme nucléaire",
+                                "La paix"
+                            ],
+                            "reponse_juste": 1
+                        }
+                    ]
                 }
     ]
 }
