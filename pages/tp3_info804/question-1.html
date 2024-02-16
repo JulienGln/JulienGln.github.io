@@ -137,7 +137,7 @@
 							1, 4000 );
 
 		// Arrière-plan
-		var path = "images/skybox/";
+		var path = "./images/skybox/";
 		var format = '.jpg';
 		var urls = [
 			path + 'posx' + format, path + 'negx' + format,
@@ -153,7 +153,7 @@
 		// TERRE
 		// Create a texture-mapped sphere and add it to the scene
 		// First, create the texture map
-		var mapUrl = "images/earth_atmos_2048.jpg";
+		var mapUrl = "./images/earth_atmos_2048.jpg";
 		var map    = new THREE.TextureLoader().load( mapUrl );
 		// Now, create a Phong material; pass in the map
 		var material = new THREE.MeshPhongMaterial({ 
@@ -161,9 +161,9 @@
 			specular: new THREE.Color("white"), 
 			emissive: 0x009cdf, 
 			emissiveIntensity: 0.1, 
-			normalMap: new THREE.TextureLoader().load( "images/earth_normal_2048.jpg" ),
-			lightMap: new THREE.TextureLoader().load( "images/earth_lights_2048.png" ),
-			specularMap: new THREE.TextureLoader().load( "images/earth_specular_2048.jpg" )
+			normalMap: new THREE.TextureLoader().load( "./images/earth_normal_2048.jpg" ),
+			lightMap: new THREE.TextureLoader().load( "./images/earth_lights_2048.png" ),
+			specularMap: new THREE.TextureLoader().load( "./images/earth_specular_2048.jpg" )
 		});
 		// Create the sphere geometry
 		var geometry = new THREE.SphereGeometry();//THREE.BoxGeometry(2, 2, 2);
@@ -180,7 +180,7 @@
 		// scene.add( earthGroup );
 
 		// LUNE
-		var moonMapUrl = "images/moon_1024.jpg";
+		var moonMapUrl = "./images/moon_1024.jpg";
 		var moonMap = new THREE.TextureLoader().load( moonMapUrl );
 		var moonMaterial = new THREE.MeshPhongMaterial({ map: moonMap, specular: new THREE.Color("gray") });
 		var moonGeometry = new THREE.SphereGeometry(0.5);
@@ -199,7 +199,7 @@
 		// with the distance.
 		var sunGeometry = new THREE.SphereGeometry(1.6);
 		var sunMaterial = new THREE.MeshBasicMaterial({ 
-			map: new THREE.TextureLoader().load( "images/sun_texture.jpg" ),
+			map: new THREE.TextureLoader().load( "./images/sun_texture.jpg" ),
 			color: new THREE.Color("yellow"),
 		});
 		sun = new THREE.Mesh(sunGeometry, sunMaterial);
