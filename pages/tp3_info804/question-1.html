@@ -82,12 +82,18 @@
 	  var earth    = null;
 	  var moon     = null;
 	  var sun      = null;
+	  var neptune  = null;
+	  var venus    = null;
+	  var jupiter  = null;
       var curTime  = Date.now();
       var canvas = document.getElementById("webglcanvas");
 
 	  var earthGroup = new THREE.Group();
 	  var moonGroup  = new THREE.Group();
 	  var earthSystem= new THREE.Group(); // terre et lune
+	  var neptuneGroup= new THREE.Group();
+	  var venusGroup = new THREE.Group();
+	  var jupiterGroup = new THREE.Group();
 	  
 	  var sunGroup  = new THREE.Group();
 	  var sunSystem = new THREE.Group();
@@ -183,7 +189,7 @@
 		earth = new THREE.Mesh(geometry, material);
 		// Move the mesh back from the camera and tilt it toward the viewer
 		earth.position.z = -12;
-		earth.position.x = -5;
+		earth.position.x = -10;
 		earth.rotation.x = Math.PI / 5;
 		earth.rotation.y = Math.PI / 5;	
 		earthSystem.add( earth );
@@ -194,17 +200,52 @@
 		// LUNE
 		var moonMapUrl = "./images/moon_1024.jpg";
 		var moonMap = new THREE.TextureLoader().load( moonMapUrl );
-		var moonMaterial = new THREE.MeshPhongMaterial({ map: moonMap, specular: new THREE.Color("gray") });
+		var moonMaterial = new THREE.MeshPhongMaterial({ 
+			map: moonMap, 
+			specular: new THREE.Color("gray"),
+			normalMap: new THREE.TextureLoader().load( "./images/moon_normal_map.jpg" ) 
+		});
 		var moonGeometry = new THREE.SphereGeometry(0.5);
 		moon = new THREE.Mesh(moonGeometry, moonMaterial);
 		moon.position.z = -14;
-		moon.position.x = -4;
+		moon.position.x = earth.position.x - 1;
 		moon.position.y = 1.5;
 		moon.rotation.x = Math.PI / 5;
 		moon.rotation.y = Math.PI / 5;	
-		moonGroup.add( moon )
-		earthGroup.add( moonGroup )
+		moonGroup.add( moon );
+		earthSystem.add( moon );
+		earthGroup.add( moonGroup );
 		//scene.add( moonGroup );
+
+		// NEPTUNE
+		var neptuneMaterial = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load("./images/neptune.jpg") });
+		var neptuneGeometry = new THREE.SphereGeometry(3.87);
+		neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
+		neptune.position.set(earth.position.x + 0, earth.position.y + 0, earth.position.z + -45);
+		neptune.rotation.x = Math.PI / 5;
+		neptune.rotation.y = Math.PI / 5;
+		neptuneGroup.add( neptune );
+
+		// VENUS
+		var venusMaterial = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load("./images/venus.jpg") });
+		var venusGeometry = new THREE.SphereGeometry(0.95);
+		venus = new THREE.Mesh(venusGeometry, venusMaterial);
+		venus.position.set(earth.position.x + 10, earth.position.y + 0, earth.position.z + -5);
+		venus.rotation.x = Math.PI / 5;
+		venus.rotation.y = Math.PI / 5;
+		venusGroup.add( venus );
+
+		// JUPITER
+		var jupiterMaterial = new THREE.MeshPhongMaterial({ 
+			map: new THREE.TextureLoader().load("./images/jupiter.jpg"),
+			normalMap: new THREE.TextureLoader().load( "./images/jupiter_normal_map.jpg" ) 
+		});
+		var jupiterGeometry = new THREE.SphereGeometry(11.21 / 2);
+		jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+		jupiter.position.set(earth.position.x + 20, earth.position.y + 0, earth.position.z + -15);
+		jupiter.rotation.x = Math.PI / 5;
+		jupiter.rotation.y = Math.PI / 5;
+		jupiterGroup.add( jupiter );
 
 		// SOLEIL
 		// Add a white point light, which lights at infinite distance and without decay
@@ -233,8 +274,8 @@
 			uniforms: uniforms
 		} );
 		//shader.glslVersion = THREE.GLSL3;
-		// On réutilise la géométrie de sphère de rayon 1.
-		var sunHalo  = new THREE.Mesh( sunGeometry, shader );
+		var sunHaloGeometry = new THREE.SphereGeometry(1.65);
+		var sunHalo  = new THREE.Mesh( sunHaloGeometry, shader );
 		//shaders material management
 		sunHalo.castShadow = false;
 		sunHalo.receiveShadow = false;
@@ -254,6 +295,9 @@
 
 		// ajout des groupes
 		sunGroup.add( earthGroup );
+		sunGroup.add( neptuneGroup );
+		sunGroup.add( venusGroup );
+		sunGroup.add( jupiterGroup );
 		sunSystem.add( sunGroup );
 		//sunSystem.add( earthGroup );
 
@@ -264,6 +308,12 @@
 		earth.receiveShadow = true;
 		moon.castShadow     = true;
 		moon.receiveShadow  = true;
+		neptune.castShadow     = true;
+		neptune.receiveShadow  = true;
+		venus.castShadow     = true;
+		venus.receiveShadow  = true;
+		jupiter.castShadow     = true;
+		jupiter.receiveShadow  = true;
 
 		// ajout du système solaire à la scène
 		scene.add( sunSystem );
@@ -313,6 +363,13 @@
 		earth.rotation.y      += angle; // et en un jour sur elle-même
 		moonGroup.rotation.y  += angle / 28; // la lune tourne en 28 jours autour de la terre
 		moon.rotation.y       += angle /28; // et en 28 jours aussi sur elle-même pour faire face à la terre
+		sun.rotation.y 		  += angle / 27; // le soleil tourne en 27 jours en moyenne sur lui même
+		neptuneGroup.rotation.y += angle / (60216.8 / 50); // Neptune effectue une révolution complète autour du Soleil en environ 60 216.8 jours, mais c'est un peu long
+		neptune.rotation.y    += angle / 0.67125; // Neptune tourne sur elle-même en environ 0,67125 jour
+		venusGroup.rotation.y += angle / 224.6; // Venus effectue une révolution complète autour du Soleil en environ 224.6 jours
+		venus.rotation.y      += angle / 243.0185; // Venus tourne sur elle-même en environ 243.0185 jours
+		jupiterGroup.rotation.y += angle / (4332.01 / 50); // Jupiter effectue une révolution complète autour du Soleil en environ 4332.01 jours
+		jupiter.rotation.y      += angle / 0.41351; // Jupiter tourne sur elle-même en environ 0.41351 jours
 
 		// On change le `moment` pour le shader.
 		shader.uniforms.moment.value += fracTime;
