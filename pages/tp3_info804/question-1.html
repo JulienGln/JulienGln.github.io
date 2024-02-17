@@ -15,7 +15,8 @@
       {
 	  "imports": {
 	      "three": "./three.module.js",
-	      "three/addons/controls/": "./examples/jsm/controls/"
+	      "three/addons/controls/": "./examples/jsm/controls/",
+		  "three/addons/": "./examples/gui/"
 	  }
       }
     </script>
@@ -87,6 +88,7 @@
     <script type="module">
       import * as THREE from 'three';
 	  import { OrbitControls} from 'three/addons/controls/OrbitControls.js';
+	  import { GUI } from 'three/addons/lil-gui.module.min.js';
       
       var renderer = null; 
       var scene    = null;
@@ -106,6 +108,12 @@
 	  var sunGroup  = new THREE.Group();
 	  var sunSystem = new THREE.Group();
 
+	  var backgroundPath = "./images/skybox/";
+
+	  var settings = { 
+		background: false,
+	  };
+
 	  var shader;
 	  var uniforms;
 
@@ -117,6 +125,22 @@
       
       init();
       run();
+	  initGui();
+
+	  // Init gui
+      function initGui() {
+		const gui = new GUI();
+		//let gui = gui.addFolder( "Material" );
+		gui.add( settings, 'background' ).name( "Voie lactée" ).onChange
+		( function( value ) { 
+			if (value) {
+            	backgroundPath = "./images/MilkyWay/";
+			} else {
+				backgroundPath = "./images/skybox/";
+			}
+			updateBackground();
+		} );
+      }
       
       // This function is called whenever the document is loaded
       function init() {
@@ -137,7 +161,7 @@
 							1, 4000 );
 
 		// Arrière-plan
-		var path = "./images/skybox/";
+		var path = backgroundPath;
 		var format = '.jpg';
 		var urls = [
 			path + 'posx' + format, path + 'negx' + format,
@@ -322,6 +346,21 @@
 		// camera.position.x = 5 * Math.cos( cameraAngle );
 		// camera.position.y = 3 * Math.sin( cameraAngle );
       }
+
+	  function updateBackground() {
+		var path = backgroundPath;
+		var format = '.jpg';
+		var urls = [
+			path + 'posx' + format, path + 'negx' + format,
+			path + 'posy' + format, path + 'negy' + format,
+			path + 'posz' + format, path + 'negz' + format
+		];
+		
+		var textureCube = new THREE.CubeTextureLoader().load(urls);
+		textureCube.type = THREE.UnsignedByteType;
+		textureCube.format = THREE.RGBAFormat;
+		scene.background = textureCube;
+		}
       
     </script>
 
