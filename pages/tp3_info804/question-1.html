@@ -21,68 +21,52 @@
       }
     </script>
 
-	<!-- Shaders -->
-	<!-- <script id="post-vert" type="x-shader/x-vertex">
+	<!-- Shaders WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium) -->
+	<script id="post-vert" type="x-shader/x-vertex">
 		// Vertex shader
 		uniform float moment; // (général) temps écoulé depuis le début
 		uniform float scale;  // (général) paramètre donnant le gonflement périodique
-		out vec3 fn;          // (sortie) normale au sommet (repère écran)
-		out vec3 vertPos;     // (sortie) coordonnées 3D du sommet (repère écran)
-		out vec3 gblPos;      // (sortie) coordonnées 3D du sommet (repère général)
+		varying vec3 fn;      // (sortie) normale au sommet (repère écran)
+		varying vec3 vertPos; // (sortie) coordonnées 3D du sommet (repère écran)
+		varying vec3 gblPos;  // (sortie) coordonnées 3D du sommet (repère général)
+		uniform bool superNovaSun;
 		void main() {
-			float t = mod( moment, 6.28318530717958647688 );
-			// On gonfle légèrement le soleil périodiquement en fonction du temps.
-			vec3 scaled_pos = position + scale * (1.0+cos( 2.0*t)) * normal;
-			gblPos          = scaled_pos;
-			// On calcule le vecteur normal au sommet dans le repère écran      
-			fn              = vec3( normalMatrix * normal );
-			// On calcule la position du sommet dans le repère caméra
-			vec4 vertPos4   = modelViewMatrix * vec4( scaled_pos, 1.0 );
-			// On envoie au fragment shader la position du sommet dans
-			// le repère camera.
-			vertPos         = vec3(vertPos4) / vertPos4.w;
-			// On indique à OpenGL la position du sommet dans le repère écran/pixel
-			gl_Position     = projectionMatrix * vertPos4;
+			if (superNovaSun){
+				float t = mod( moment, 6.28318530717958647688 );
+				// On gonfle légèrement le soleil périodiquement en fonction du temps.
+				vec3 scaled_pos = position + scale * (1.0+cos( 2.0*t)) * normal;
+				gblPos          = scaled_pos;
+				// On calcule le vecteur normal au sommet dans le repère écran      
+				fn              = vec3( normalMatrix * normal );
+				// On calcule la position du sommet dans le repère caméra
+				vec4 vertPos4   = modelViewMatrix * vec4( scaled_pos, 1.0 );
+				// On envoie au fragment shader la position du sommet dans
+				// le repère camera.
+				vertPos         = vec3(vertPos4) / vertPos4.w;
+				// On indique à OpenGL la position du sommet dans le repère écran/pixel
+				gl_Position     = projectionMatrix * vertPos4;
+			}
 		}
 	</script>
-
+	
 	<script id="post-frag" type="x-shader/x-fragment">
 		// Fragment/pixel shader
-		in vec3 fn;      // (entrée) normale du pixel (repère écran) (interpolée)
-		in vec3 vertPos; // (entrée) coordonnées 3D du pixel (repère écran)(interpolées)
-		in vec3 gblPos;  // (entrée) coordonnées 3D du pixel (repère général)(interpolées)
+		varying vec3 fn;      // (entrée) normale du pixel (repère écran) (interpolée)
+		varying vec3 vertPos; // (entrée) coordonnées 3D du pixel (repère écran)(interpolées)
+		varying vec3 gblPos;  // (entrée) coordonnées 3D du pixel (repère général)(interpolées)
 		uniform float moment; // (général) temps écoulé depuis le début
-		out vec4 outColor; // (sortie) la couleur de sortie du pixel
-		
+		uniform bool superNovaSun;
 		void main() {
-			float t = mod( moment, 6.28318530717958647688 ); // temps
-			vec3 n1 = normalize(fn); // vecteur normal au soleil (repère écran)
-			float l = abs( n1.z );   // proche de 0 sur les bords du soleil
-			outColor.rgb = vec3( 1.0 , 0.6+0.4* cos( 4.*gblPos.x + 3.*t ), l );
-			outColor.a   = 1.0;
+			if (superNovaSun){
+				float t = mod( moment, 6.28318530717958647688 ); // temps
+				vec3 n1 = normalize(fn); // vecteur normal au soleil (repère écran)
+				float l = abs( n1.z );   // proche de 0 sur les bords du soleil
+				gl_FragColor.rgb = vec3( 1.0 , 0.6+0.4* cos( 4.*gblPos.x + 3.*t ), l );
+				gl_FragColor.a   = 1.0;
+			}
 		}
-	</script> -->
-
-	<script id="post-vert" type="x-shader/x-vertex">
-        // Simple vertex shader
-        void main() {
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-
-
-    </script>
-    
-        
-    <script id="post-frag" type="x-shader/x-fragment">
-      // Simple fragment shader for a solid color
-      precision mediump float;
-      
-      uniform vec4 color; // Color uniform that will be set to the desired color
-      
-      void main() {
-          gl_FragColor = vec4( 0.0, 0.0, 1.0, 1.0 ); // color;
-      }
-  	</script>
+	</script>
+	
 	
 	<!-- Scène -->
     <script type="module">
@@ -108,10 +92,11 @@
 	  var sunGroup  = new THREE.Group();
 	  var sunSystem = new THREE.Group();
 
+	  // Variables paramétrables
 	  var backgroundPath = "./images/skybox/";
-
 	  var settings = { 
 		background: false,
+		sunHalo: true
 	  };
 
 	  var shader;
@@ -122,6 +107,8 @@
 	       && ( canvas.getContext('webgl')
 		    || canvas.getContext('experimental-webgl')) ) )
 	  console.log( "WebGL not supported on your browser." );
+
+	  console.log("Version shader : " + canvas.getContext('webgl').getParameter(canvas.getContext('webgl').SHADING_LANGUAGE_VERSION))
       
       init();
       run();
@@ -130,7 +117,6 @@
 	  // Init gui
       function initGui() {
 		const gui = new GUI();
-		//let gui = gui.addFolder( "Material" );
 		gui.add( settings, 'background' ).name( "Voie lactée" ).onChange
 		( function( value ) { 
 			if (value) {
@@ -140,6 +126,8 @@
 			}
 			updateBackground();
 		} );
+		gui.add( settings, 'sunHalo' ).name( "Soleil vers supernova").onChange
+		( function(value) { shader.uniforms.superNovaSun.value = value; })
       }
       
       // This function is called whenever the document is loaded
@@ -221,20 +209,40 @@
 		// SOLEIL
 		// Add a white point light, which lights at infinite distance and without decay
 		// with the distance.
+		var sunDepth = -10;
 		var sunGeometry = new THREE.SphereGeometry(1.6);
 		var sunMaterial = new THREE.MeshBasicMaterial({ 
 			map: new THREE.TextureLoader().load( "./images/sun_texture.jpg" ),
 			color: new THREE.Color("yellow"),
 		});
 		sun = new THREE.Mesh(sunGeometry, sunMaterial);
-		sun.position.z = -10;
+		sun.position.z = sunDepth;
 		// sun.position.y = 1;
 		// sun.position.x = 5;
 		sunGroup.add( sun );
 		// scene.add( sun );
+		// Shaders
+		uniforms = {
+          moment: { type: "f", value: 0.0 },
+          scale:  { type: "f", value: 0.02 },
+		  superNovaSun: { type: "b", value: true } 
+		};
+		shader = new THREE.ShaderMaterial( {
+			vertexShader: document.querySelector( '#post-vert' ).textContent.trim(),
+			fragmentShader: document.querySelector( '#post-frag' ).textContent.trim(),
+			uniforms: uniforms
+		} );
+		//shader.glslVersion = THREE.GLSL3;
+		// On réutilise la géométrie de sphère de rayon 1.
+		var sunHalo  = new THREE.Mesh( sunGeometry, shader );
+		//shaders material management
+		sunHalo.castShadow = false;
+		sunHalo.receiveShadow = false;
+		sunHalo.position.z = sunDepth;
+		sunGroup.add( sunHalo );
 
 		var light = new THREE.PointLight( 0xffffff, 2.5, 0.0, 0.0 );
-		light.position.set( 0, 0, -10 );
+		light.position.set( 0, 0, sunDepth );
 		light.castShadow = true;
 		// On peut aussi paramétrer la qualité du calcul
 		light.shadow.mapSize.width  = 512; // default
@@ -257,35 +265,6 @@
 		moon.castShadow     = true;
 		moon.receiveShadow  = true;
 
-		// Shaders
-		// uniforms = {
-        //   moment: { value: 0.0 },
-        //   scale:  { value: 0.02 }
-		// };
-		// shader = new THREE.ShaderMaterial( {
-		// 	vertexShader: document.querySelector( '#post-vert' ).textContent.trim(),
-		// 	fragmentShader: document.querySelector( '#post-frag' ).textContent.trim(),
-		// 	uniforms: uniforms
-		// } );
-		// shader.glslVersion = THREE.GLSL1;
-		// // On réutilise la géométrie de sphère de rayon 1.
-		// var sunHalo  = new THREE.Mesh( geometry, shader );
-		//shaders material management
-		uniforms = {
-            color: { value: new THREE.Color(0xff0000) }
-		};
-		shader = new THREE.ShaderMaterial( {
-			vertexShader: document.querySelector( '#post-vert' ).textContent.trim(),
-			fragmentShader: document.querySelector( '#post-frag' ).textContent.trim(),
-			uniforms: uniforms
-		} );
-		shader.glslVersion = THREE.GLSL2;
-		// On réutilise la géométrie de sphère de rayon 1.
-		var sunHalo  = new THREE.Mesh( geometry, shader );
-		sunHalo.castShadow = false;
-		sunHalo.receiveShadow = false;
-		sunGroup.add( sunHalo );
-
 		// ajout du système solaire à la scène
 		scene.add( sunSystem );
 
@@ -306,10 +285,8 @@
       function run() {
 		// Ask to call again run 
 		requestAnimationFrame( run );
-		
 		// Render the scene
 		render();
-		
 		// Calls the animate function if objects or camera should move
 		animate();
       }
@@ -338,7 +315,7 @@
 		moon.rotation.y       += angle /28; // et en 28 jours aussi sur elle-même pour faire face à la terre
 
 		// On change le `moment` pour le shader.
-		//shader.uniforms.moment.value += fracTime;
+		shader.uniforms.moment.value += fracTime;
 
 		// caméra
 		// camera.lookAt( earth.matrixWorld.getPosition() );
